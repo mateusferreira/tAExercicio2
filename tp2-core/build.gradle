@@ -1,0 +1,5 @@
+
+dependencies {
+	compile project(':tp2-api')
+	compile project(':tp2-ejb-client')
+}

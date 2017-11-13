@@ -1,0 +1,24 @@
+
+apply plugin: 'ear'
+
+dependencies {
+	deploy project(path: ':tp2-war', configuration: 'archives')
+	deploy project(path: ':tp2-ejb')
+	earlib project(':tp2-core')
+	earlib project(':tp2-api')
+	earlib project(':tp2-ejb-client')
+}
+
+ear {
+	deploymentDescriptor {
+		def warName = project(':tp2-war').name
+		def warVersion = project(':tp2-war').version
+		def warFileName = warName + '-' + warVersion + '.war'
+		webModule(warFileName, 'hello_tp2')
+
+		def ejbName = project(':tp2-ejb').name
+		def ejbVersion = project(':tp2-ejb').version
+		def ejbFileName = ejbName + '-' + ejbVersion + '.jar'
+		module(ejbFileName, 'ejb')
+	}
+}

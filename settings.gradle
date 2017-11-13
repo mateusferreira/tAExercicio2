@@ -1,0 +1,1 @@
+include "tp2-api", "tp2-core", "tp2-ear", "tp2-war", "tp2-ejb", "tp2-ejb-client"

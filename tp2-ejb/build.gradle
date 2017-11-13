@@ -1,0 +1,4 @@
+
+dependencies {
+	compile project(':tp2-ejb-client')
+}
