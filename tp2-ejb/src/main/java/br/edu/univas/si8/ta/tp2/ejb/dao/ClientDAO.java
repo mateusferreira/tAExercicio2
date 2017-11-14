@@ -6,21 +6,21 @@ import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
-import br.edu.univas.si8.ta.tp2.ejb.entities.Clientes;
+import br.edu.univas.si8.ta.tp2.ejb.entities.Cliente;
 
 
 @Stateless
 public class ClientDAO {
 	
-	@PersistenceContext(unitName = "estoque")
+	@PersistenceContext(unitName = "cliente")
 	private EntityManager em;
 
-	public void insert(Clientes client) {
+	public void insert(Cliente client) {
 		em.persist(client);
 	}
 
-	public List<Clientes> listAll() {
-		return em.createQuery("from products p", Clientes.class).getResultList();
+	public List<Cliente> listAll() {
+		return em.createQuery("from Cliente c", Cliente.class).getResultList();
 	}
 
 }

@@ -1,10 +1,14 @@
 package br.edu.univas.si8.ta.tp2.ejb.entities;
 
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
 
-public class Clientes {
+@Entity
+@SequenceGenerator(name="seq_cliente", sequenceName="seq_cliente", allocationSize=1)
+public class Cliente {
 	@Id
 	@GeneratedValue(generator = "seq_cliente", strategy = GenerationType.SEQUENCE)
 	private Integer id;

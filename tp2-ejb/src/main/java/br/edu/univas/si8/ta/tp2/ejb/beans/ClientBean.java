@@ -8,7 +8,7 @@ import javax.ejb.Remote;
 import javax.ejb.Stateless;
 
 import br.edu.univas.si8.ta.tp2.ejb.dao.ClientDAO;
-import br.edu.univas.si8.ta.tp2.ejb.entities.Clientes;
+import br.edu.univas.si8.ta.tp2.ejb.entities.Cliente;
 import br.edu.univas.si8.ta.tp2.ejb.interfaces.ClientLocal;
 import br.edu.univas.si8.ta.tp2.ejb.interfaces.ClientRemote;
 
@@ -24,10 +24,10 @@ public class ClientBean implements ClientLocal, ClientRemote {
 	private ClientDAO dao;
 
 	@Override
-	public void createNewClient(String clientName) {
-		Clientes client = new Clientes();
+	public void createNewClient(String clientName, String clientEmail) {
+		Cliente client = new Cliente();
 		client.setName(clientName);
-		//client.setEmail(clientEmail);
+		client.setEmail(clientEmail);
 		dao.insert(client);
 	}
 
@@ -35,7 +35,7 @@ public class ClientBean implements ClientLocal, ClientRemote {
 	public String[] listClientNames() {
 		return dao.listAll()
 				.stream()
-				.map(Clientes::getName)
+				.map(Cliente::getName)
 				.collect(Collectors.toList())
 				.toArray(new String[0]);
 	}

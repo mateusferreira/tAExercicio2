@@ -6,7 +6,7 @@ import java.util.Set;
 import javax.ws.rs.ApplicationPath;
 import javax.ws.rs.core.Application;
 
-import br.edu.univas.si8.ta.tp2.impl;
+import br.edu.univas.si8.ta.tp2.impl.ClientServiceImpl;
 
 @ApplicationPath("/rest")
 
